@@ -1,8 +1,12 @@
-import logo from "./logo.svg";
-// import "./App.css";
-import TodoFeature from "./features/todo";
-import AlbumFeature from "./features/album";
-import { Link, NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import NotFound from './components/not-found';
+import AlbumFeature from './features/album';
+import TodoFeature from './features/todo';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   return (
@@ -18,8 +22,10 @@ function App() {
         <Route path="/home" element={<Navigate to="/" />} />
 
         <Route path="/" element={<TodoFeature />} />
-        <Route path="/todos" element={<TodoFeature />} />
+        <Route path="/todos/*" element={<TodoFeature />} />
         <Route path="/albums" element={<AlbumFeature />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
       Footer
     </div>

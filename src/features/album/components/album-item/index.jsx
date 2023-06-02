@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss'
+import './styles.scss';
 
 AlbumItem.propTypes = {
-    album: PropTypes.object
+  album: PropTypes.object,
 };
 
 AlbumItem.defaultProps = {
-    album: null
-}
+  album: null,
+};
 
 function AlbumItem(props) {
-    const {album} = props
+  const { album } = props;
 
-    return (
-        <div className='album'>
-            <div className='album__thumbnail'>
-                <img src={album.thumbnailUrl} alt={album.name} />
-            </div>
-            <p className='album__name'>{album.name}</p>
-        </div>
-    );
+  return (
+    <div className="album">
+      <div className="album__thumbnail">
+        <img src={album.thumbnailUrl} alt={album.name} />
+      </div>
+      <p className="album__name">{album.name}</p>
+    </div>
+  );
 }
 
 export default AlbumItem;
