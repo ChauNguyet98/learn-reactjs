@@ -7,8 +7,19 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { useEffect } from 'react';
+import categoryService from './services/categoryService';
 
 function App() {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const categoryList = await categoryService.getAll();
+      console.log(categoryList);
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div className="App">
       <div>
