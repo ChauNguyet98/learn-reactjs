@@ -9,6 +9,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useEffect } from 'react';
 import categoryService from './services/categoryService';
+import CounterFeature from './features/counter';
 
 function App() {
   useEffect(() => {
@@ -32,13 +33,13 @@ function App() {
         {/* Redirect */}
         <Route path="/home" element={<Navigate to="/" />} />
 
-        <Route path="/" element={<TodoFeature />} />
+        <Route path="/" element={<CounterFeature />} />
         <Route path="/todos/*" element={<TodoFeature />} />
         <Route path="/albums" element={<AlbumFeature />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      Footer
+      {/* Footer */}
     </div>
   );
 }
