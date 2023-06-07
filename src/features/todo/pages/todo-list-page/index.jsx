@@ -7,6 +7,7 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import queryString from 'query-string';
+import TodoForm from '../../components/todo-form';
 
 TodoListPage.propTypes = {};
 
@@ -67,13 +68,29 @@ function TodoListPage(props) {
     );
   }, [todoList, filterStatus]);
 
+  const handleSubmitTodoForm = (formValue) => {
+    console.log('form value', formValue);
+    const newTodo = {
+      id: todoList.length + 1,
+      title: formValue.title,
+      status: 'New',
+    };
+
+    const newTodoList = [...todoList, newTodo];
+    setTodoList(newTodoList);
+  };
+
   return (
     <div>
+      <h3>What todo?</h3>
+      <div>
+        <TodoForm onSubmit={handleSubmitTodoForm} />
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
       <h3>Todo List</h3>
-      <TodoList
-        todoList={filteredTodoList}
-        onTodoClick={handleTodoClick}
-      ></TodoList>
+      <TodoList todoList={filteredTodoList} onTodoClick={handleTodoClick} />
 
       <div>
         <button onClick={handleShowAllClick}>Show All</button>
